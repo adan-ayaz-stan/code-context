@@ -1,0 +1,135 @@
+{
+  "name": "code-context",
+  "displayName": "Code Context",
+  "description": "Built for AI chats. Copy your code with exactly the dependencies it uses — no bloat, just surgical context.",
+  "version": "0.0.1",
+  "publisher": "code-context",
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.114.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "context",
+    "copy",
+    "dependencies",
+    "clipboard",
+    "typescript",
+    "llm"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codeContext.copyFile",
+        "title": "Code Context: Copy File"
+      },
+      {
+        "command": "codeContext.copyWithDeps",
+        "title": "Code Context: Copy with Dependencies"
+      },
+      {
+        "command": "codeContext.copyFunction",
+        "title": "Code Context: Copy Function + Dependencies"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .ts || resourceExtname == .tsx || resourceExtname == .js || resourceExtname == .jsx",
+          "command": "codeContext.copyFile",
+          "group": "codeContext@1"
+        },
+        {
+          "when": "resourceExtname == .ts || resourceExtname == .tsx || resourceExtname == .js || resourceExtname == .jsx",
+          "command": "codeContext.copyWithDeps",
+          "group": "codeContext@2"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceExtname == .ts || resourceExtname == .tsx || resourceExtname == .js || resourceExtname == .jsx",
+          "command": "codeContext.copyFile",
+          "group": "codeContext@1"
+        },
+        {
+          "when": "resourceExtname == .ts || resourceExtname == .tsx || resourceExtname == .js || resourceExtname == .jsx",
+          "command": "codeContext.copyWithDeps",
+          "group": "codeContext@2"
+        },
+        {
+          "when": "resourceExtname == .ts || resourceExtname == .tsx || resourceExtname == .js || resourceExtname == .jsx",
+          "command": "codeContext.copyFunction",
+          "group": "codeContext@3"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Code Context",
+      "properties": {
+        "codeContext.defaultDepth": {
+          "type": "number",
+          "default": 2,
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Default dependency walk depth when copying with dependencies."
+        },
+        "codeContext.outputFormat": {
+          "type": "string",
+          "default": "comment-path",
+          "enum": ["comment-path", "markdown-codeblock"],
+          "enumDescriptions": [
+            "Prepend each file with a // path/to/file.ts comment",
+            "Wrap each file in a markdown code block with language tag"
+          ],
+          "description": "Format of the copied output."
+        },
+        "codeContext.excludePatterns": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["**/*.test.ts", "**/*.spec.ts", "**/*.test.js", "**/*.spec.js"],
+          "description": "Glob patterns for files to exclude from dependency resolution."
+        },
+        "codeContext.followTsConfigPaths": {
+          "type": "boolean",
+          "default": true,
+          "description": "Resolve TypeScript path aliases defined in tsconfig.json (e.g. @/ → src/)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "dependencies": {
+    "@typescript-eslint/typescript-estree": "^8.58.1",
+    "minimatch": "^10.2.5"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.114.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.56.1",
+    "eslint": "^9.39.3",
+    "esbuild": "^0.27.3",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
