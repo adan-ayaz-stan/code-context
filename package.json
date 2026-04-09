@@ -5,6 +5,10 @@
   "version": "0.0.1",
   "publisher": "code-context",
   "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adan-ayaz-stan/code-context.git"
+  },
   "engines": {
     "vscode": "^1.114.0"
   },
@@ -116,11 +120,9 @@
     "lint": "eslint src",
     "test": "vscode-test"
   },
-  "dependencies": {
-    "@typescript-eslint/typescript-estree": "^8.58.1",
-    "minimatch": "^10.2.5"
-  },
   "devDependencies": {
+    "@typescript-eslint/typescript-estree": "^8.58.1",
+    "minimatch": "^10.2.5",
     "@types/vscode": "^1.114.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
