@@ -2,7 +2,7 @@
 
 <br/>
 
-<img src="assets/images/logo_250x250.png" alt="Code Context Logo (250x250)" width="96" height="96" />
+<img src="assets/images/logo_512x512.png" alt="Code Context Logo (512x512)" width="96" height="96" />
 
 <br/>
 <br/>
