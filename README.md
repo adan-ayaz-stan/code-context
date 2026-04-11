@@ -14,8 +14,8 @@
 
 <br/>
 
-[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/code-context.code-context?style=flat-square&label=Marketplace&color=0066b8&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=code-context.code-context)
-[![Downloads](https://img.shields.io/visual-studio-marketplace/d/code-context.code-context?style=flat-square&color=0066b8&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=code-context.code-context)
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/code-context.code-context?style=flat-square&label=Marketplace&color=0066b8&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=AdanAyaz.cc4ai)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/d/code-context.code-context?style=flat-square&color=0066b8&logo=visualstudiocode&logoColor=white)](https://marketplace.visualstudio.com/items?itemName=AdanAyaz.cc4ai)
 [![Tests](https://img.shields.io/badge/tests-33%20passing-22c55e?style=flat-square&logo=checkmarx&logoColor=white)](https://github.com/adan-ayaz-stan/code-context)
 [![TypeScript](https://img.shields.io/badge/TypeScript%20%2F%20JS-supported-3178c6?style=flat-square&logo=typescript&logoColor=white)](https://github.com/adan-ayaz-stan/code-context)
 [![License: MIT](https://img.shields.io/badge/license-MIT-f59e0b?style=flat-square)](LICENSE)
