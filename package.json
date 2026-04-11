@@ -1,9 +1,9 @@
 {
-  "name": "code-context",
-  "displayName": "Code Context",
+  "name": "cc4ai",
+  "displayName": "Code Context for AI",
   "description": "Built for AI chats. Copy your code with exactly the dependencies it uses — no bloat, just surgical context.",
   "version": "0.0.1",
-  "publisher": "code-context",
+  "publisher": "AdanAyaz",
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
